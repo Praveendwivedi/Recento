@@ -36,6 +36,11 @@ async def on_message(msg):
   if msg:
     print(msg)
     await msg.channel.send('hey {}'.format(msg.author.name))
+    tweets = api.search(msg.content,lang='en',result_type='recent',include_entities="mashable")
+    for tweet in  tweets:
+      if not tweet.text.startswith('RT'):
+        await msg.channel.send(tweet.user.screen_name+' : \n'+tweet.text)
+  
   if 'inspire' in msg.content.lower():
     response = requests.get("https://zenquotes.io/api/random")
     json_data = json.loads(response.text)
