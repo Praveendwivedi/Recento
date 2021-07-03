@@ -12,14 +12,7 @@ auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
 
 api = tweepy.API(auth)
-user = api.get_user('Praveen')
-print(user.screen_name)
-print(user.followers_count)
 
-# public_tweets = api.home_timeline()
-# print('5')
-# for tweet in public_tweets:
-#     print(tweet.text).encode(encoding='UTF-8',errors='ignore')
 r = requests.get('https://api.github.com/user', auth=('user', 'pass'))
 print(r.json())
 print(r.status_code)
