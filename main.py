@@ -34,11 +34,6 @@ async def on_message(msg):
       if not tweet.text.startswith('RT'):
         await msg.channel.send(tweet.user.screen_name+' : \n'+tweet.text)
   
-  if 'inspire' in msg.content.lower():
-    response = requests.get("https://zenquotes.io/api/random")
-    json_data = json.loads(response.text)
-    quote = json_data[0]['q'] + " -" + json_data[0]['a']
-    await msg.channel.send(quote)
   
   
   
